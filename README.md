@@ -4,7 +4,7 @@ Author : Mathis CARPENTIER, Engineering student at IPSA
 
 The purpose of this paper is to log my experience while working project.
 
-The project itself was created after I watched [[https://www.youtube.com/watch?v=-RdOwhmqP5s|this]] video from the Youtube channel 3Blue1Brown about Newton's fractal, which greatly fascinated me, as Newton's method is something I have already come across as an engineering student, yet I was completely unaware that it was capable of producing beautiful and interesting fractals such as those produced in this project.
+The project itself was created after I watched Youtube channel 3Blue1Brown's video (https://www.youtube.com/watch?v=-RdOwhmqP5s) about Newton's fractal, which greatly fascinated me, as Newton's method is something I have already come across as an engineering student, yet I was completely unaware that it was capable of producing beautiful and interesting fractals such as those produced in this project.
 
 Not only has the project yielded mesmerising results, but it also has helped me improve my knowledge in both mathematics and programming.
 
@@ -12,8 +12,10 @@ This paper will fully explain the method used to create Newton's fractals.
 # Principle
 Newton's method is a root-finding algorithm, which allows to approximate the root(s) of a function. This method goes as follows:
 - An initial input $x_0$ is chosen, generally at random, with $f(x_0)$ being its image.
-- A step to take from this point is calculated with the following equation : $$\mathrm{step}=\frac{f(x_0)}{f'(x_0)}$$
-- A new value $x_1$ is defined as follows : $x_1=x_0-\mathrm{step}$ 
+- A step to take from this point is calculated with the following equation :
+  $$\mathrm{step}=\frac{f(x_0)}{f'(x_0)}$$
+- A new value $x_1$ is defined as follows :
+  $x_1=x_0-\mathrm{step}$ 
 - The previous steps are repeated using $x_1$, then $x_2$, and so on until a certain integer $n$ is reached, where $f(x_n)$ is generally an approximation of one of the roots of the function.
 
 Notes :
@@ -36,10 +38,14 @@ We will be dealing with complex numbers, which aren't built-in to Python, theref
 Due to the nature of this implementation of complex numbers, it is important that they are represented in the $\alpha+i\beta$ form.
 
 We will be using the classic function used for Newton's fractal, which is : $$f(x)=x^3-1$$
-This polynomial has three roots : $$1;-\frac{1}{2}+i\frac{\sqrt{3}}{2};-\frac{1}{2}-i\frac{\sqrt{3}}{2}$$
+This polynomial has three roots : 
+$$1;-\frac{1}{2}+i\frac{\sqrt{3}}{2};-\frac{1}{2}-i\frac{\sqrt{3}}{2}$$
 We know that the input to this function will always be a complex number of the $a+ib$ form, therefore we can rewrite the function's expression as : $$f(a+ib)=(a+ib)^3-1$$
 However, as mentioned previously, it is imperative that all complex numbers use the $a+ib$ form, which includes the output of the function, as such we will refactor this expression in the following way:
-$$f(a+ib)=(a+ib)^3-1$$$$=a^3+3a^2ib+3a(ib)^2+(ib)^3-1$$$$=a^3-3ab^2-1+i3a^2b-ib^3$$$$=a^3-3ab^2-1+i(3a^2b-b^3)$$
+$$f(a+ib)=(a+ib)^3-1$$
+$$=a^3+3a^2ib+3a(ib)^2+(ib)^3-1$$
+$$=a^3-3ab^2-1+i3a^2b-ib^3$$
+$$=a^3-3ab^2-1+i(3a^2b-b^3)$$
 Thanks to this new expression, we can now easily implement the function in Python :
 ```python
 def f(z : Complex) -> Complex:
