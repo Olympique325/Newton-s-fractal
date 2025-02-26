@@ -61,7 +61,14 @@ def f(z : Complex) -> Complex:
 	return Complex(f_a, f_b)
 ```
 
-The same is done for the derivative of this function : $$f'(a+ib)=3(a+ib)^2$$ $$=3(a^2+2aib+b^2)$$ $$=3(a^2+b^2)+i(6ab)$$
+The same is done for the derivative of this function : 
+
+$$f'(a+ib)=3(a+ib)^2$$
+
+$$=3(a^2+2aib+b^2)$$
+
+$$=3(a^2+b^2)+i(6ab)$$
+
 ```python
 def fder(z : Complex) -> Complex:
 	a,b = z.a, z.b 
