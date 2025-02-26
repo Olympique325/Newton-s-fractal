@@ -42,9 +42,13 @@ This polynomial has three roots :
 $$1;-\frac{1}{2}+i\frac{\sqrt{3}}{2};-\frac{1}{2}-i\frac{\sqrt{3}}{2}$$
 We know that the input to this function will always be a complex number of the $a+ib$ form, therefore we can rewrite the function's expression as : $$f(a+ib)=(a+ib)^3-1$$
 However, as mentioned previously, it is imperative that all complex numbers use the $a+ib$ form, which includes the output of the function, as such we will refactor this expression in the following way:
+
 $$f(a+ib)=(a+ib)^3-1$$
+
 $$=a^3+3a^2ib+3a(ib)^2+(ib)^3-1$$
+
 $$=a^3-3ab^2-1+i3a^2b-ib^3$$
+
 $$=a^3-3ab^2-1+i(3a^2b-b^3)$$
 Thanks to this new expression, we can now easily implement the function in Python :
 ```python
